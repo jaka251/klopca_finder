@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+
+
+    <script type="text/javascript" src="https://api.mapy.cz/loader.js"></script>
+    <script type="text/javascript">Loader.lang = "en"; Loader.load()</script>
+
+    <script type="text/javascript" src="https://api.mapy.cz/loader.js"></script>
+    <script type="text/javascript">Loader.load();</script>
+    
+    <title>KLOPCA FINDER</title>
+</head>
+<body>
+    <h1>KLOPCA FINDER</h1>   
+   
+        <div id="map" style="width:1000px; height:500px;"></div>
+        <script type="text/javascript">
+           
+            //mapa
+            var center = SMap.Coords.fromWGS84(14.3555, 46.2428);
+            var m = new SMap(JAK.gel("map"), center, 10);
+            m.addDefaultLayer(SMap.DEF_BASE).enable();
+            m.addDefaultControls();
+
+
+            //cluster
+            var layer = new SMap.Layer.Marker();
+            var clusterer = new SMap.Marker.Clusterer(m);
+            layer.setClusterer(clusterer);
+            var markers = [];
+
+            for (var i=0;i<10;i++) {
+                var x = 14.3555;
+                var y = 46.2428;
+                var coords = SMap.Coords.fromWGS84(x, y);
+                var marker = new SMap.Marker(coords);
+                markers.push(marker);
+            }
+
+            layer.addMarker(markers);
+            m.addLayer(layer).enable();
+
+
+            
+                	      
+        </script>
+    
+    
+
+</script></body>
+</html>
